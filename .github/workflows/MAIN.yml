@@ -23,12 +23,13 @@ jobs:
       # Show build status
       - run: git status
 
-      # Push the changes
-      - name: Push changes
-        uses: ad-m/github-push-action@v0.6.0
+      # Push the changes using alternative action
+      - name: Commit and Push changes
+        uses: github-actions-x/commit@v2.8
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: master
+          commit_message: "Auto-generated snake animation"
           force: true
 
       - uses: crazy-max/ghaction-github-pages@v2.1.3
